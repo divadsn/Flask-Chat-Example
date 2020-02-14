@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Twój własny czat: {{ room }}</title>
+        <link type="text/css" href="style.css" />
+
+        <script type="text/javascript" src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            var socket;
+            $(document).ready(function(){
+                socket = io.connect('http://' + document.domain + ':' + location.port + '/chat');
+
+                $('#text').keypress(function(e) {
+                    var code = e.keyCode || e.which;
+                    if (code == 13) {
+                        // wysyłanie wiadomości
+                    }
+                });
+            });
+
+            function leave_room() {
+                // wyjście z czatu
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Twój własny czat: {{ room }}</h1>
+        <textarea id="chat" cols="80" rows="20"></textarea><br><br>
+        <input id="text" size="80" placeholder="Enter your message here"><br><br>
+        <a href="#" onclick="leave_room();">Leave this room</a>
+    </body>
+</html>
