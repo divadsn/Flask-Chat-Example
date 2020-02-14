@@ -1,32 +1,31 @@
-<html>
-    <head>
-        <title>Twój własny czat: {{ room }}</title>
-        <link type="text/css" href="style.css" />
+<!doctype html>
+<html lang="pl">
 
-        <script type="text/javascript" src="//code.jquery.com/jquery-2.2.4.min.js"></script>
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
-        <script type="text/javascript" charset="utf-8">
-            var socket;
-            $(document).ready(function(){
-                socket = io.connect('http://' + document.domain + ':' + location.port + '/chat');
+<head>
+    <!-- Wymagane tagi meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Przykładowy czat zrobiony w Pythonie przy użyciu Flask i SocketIO">
+    <meta name="author" content="David Sn">
+    <meta name="generator" content="NextGen Education Course Manager">
 
-                $('#text').keypress(function(e) {
-                    var code = e.keyCode || e.which;
-                    if (code == 13) {
-                        // wysyłanie wiadomości
-                    }
-                });
-            });
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
 
-            function leave_room() {
-                // wyjście z czatu
-            }
-        </script>
-    </head>
-    <body>
-        <h1>Twój własny czat: {{ room }}</h1>
-        <textarea id="chat" cols="80" rows="20"></textarea><br><br>
-        <input id="text" size="80" placeholder="Enter your message here"><br><br>
-        <a href="#" onclick="leave_room();">Leave this room</a>
-    </body>
+    <!-- Kod JavaScript -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script type="text/javascript" src="chat.js"></script>
+
+    <title>Twój własny czat: {{ room }}</title>
+</head>
+
+<body>
+    <h1>Zalogowany jesteś w pokoju: {{ room }}</h1>
+    <textarea id="chat" cols="80" rows="20"></textarea><br><br>
+    <input id="text" size="80" placeholder="Enter your message here"><br><br>
+    <a href="#" onclick="leave_room();">Wyjdź z czatu</a>
+</body>
+
 </html>

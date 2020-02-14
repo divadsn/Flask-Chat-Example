@@ -1,14 +1,69 @@
-<html>
-    <head>
-        <title>Mój własny czat</title>
-    </head>
-    <body>
-        <h1>Witaj towarzyszu na moim czacie!</h1>
-        <form method="POST">
-            {{ form.hidden_tag() }}
-            {{ form.name.label }}: {{ form.name() }} {% for error in form.name.errors %}{{ error }}{% endfor %}
-            {{ form.room.label }}: {{ form.room() }} {% for error in form.room.errors %}{{ error }}{% endfor %}
-            {{ form.submit() }}
-        </form>
-    </body>
+<!doctype html>
+<html lang="pl">
+
+<head>
+    <!-- Wymagane tagi meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Przykładowy czat zrobiony w Pythonie przy użyciu Flask i SocketIO">
+    <meta name="author" content="David Sn">
+    <meta name="generator" content="NextGen Education Course Manager">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Mój własny czat</title>
+</head>
+
+<body>
+
+    <main role="main" class="container h-100">
+        
+        <div class="row h-100 justify-content-center align-items-center">
+
+            <div class="col-lg-6">
+
+                <!-- Okienko logowania -->
+                <div class="jumbotron shadow" style="padding: 32px">
+
+                    <!-- Tytuł okienka -->
+                    <div class="text-center mb-4">
+                        <h1>Mój własny czat</h1>
+                        <h4>Zaloguj się do pokoju</h4>
+                    </div>
+
+                    <!-- Formularz logowania -->
+                    <form method="post">
+                        {{ form.hidden_tag() }}
+
+                        <!-- Twój nick -->
+                        <div class="form-group row">
+                            {{ form.name.label(class_="col-sm-3 col-form-label") }}
+                            <div class="col-sm-9">
+                                {{ form.name(class_="form-control") }}
+                            </div>
+                        </div>
+
+                        <!-- Pokój -->
+                        <div class="form-group row">
+                            {{ form.room.label(class_="col-sm-3 col-form-label") }}
+                            <div class="col-sm-9">
+                                {{ form.room(class_="form-control") }}
+                            </div>
+                        </div>
+                        
+                        {{ form.submit(class_="btn btn-primary btn-lg btn-block") }}
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
 </html>
